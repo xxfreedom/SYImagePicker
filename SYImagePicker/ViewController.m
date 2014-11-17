@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "SYImagePickerViewController.h"
 #import "SYNavigationController.h"
-@interface ViewController ()<UIActionSheetDelegate>
+@interface ViewController ()<UIActionSheetDelegate,SYImagePickerDelegate>
 
 @end
 
@@ -44,6 +44,7 @@
         
         SYImagePickerViewController *picker=[[SYImagePickerViewController alloc]init];
         picker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.delegate=self;
         SYNavigationController *nav=[[SYNavigationController alloc]initWithRootViewController:picker];
         [self presentViewController:nav animated:YES completion:^{
             ;
@@ -52,5 +53,14 @@
     {
         
     }
+}
+
+-(void)syImagePickerController:(SYImagePickerViewController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+    
+}
+-(void)syImagePickerControllerDidCancel:(SYImagePickerViewController *)picker
+{
+    
 }
 @end

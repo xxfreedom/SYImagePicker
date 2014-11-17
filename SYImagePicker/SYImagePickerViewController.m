@@ -9,6 +9,8 @@
 #import "SYImagePickerViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <AVFoundation/AVFoundation.h>
+#import "SYCollectionViewController.h"
+static NSString *notification_imageEdit=@"notification_imageEdit";
 @interface SYImagePickerViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
 
@@ -32,22 +34,13 @@
 }
 -(IBAction)back:(id)sender
 {
-    @try {
-        if(self.navigationController!=nil&&[self.navigationController.viewControllers indexOfObject:self]==0)
+    __weak typeof(self)wself=self;
+    [self dismissViewControllerAnimated:YES completion:^{
+        if(wself.delegate&&[wself.delegate respondsToSelector:@selector(syImagePickerControllerDidCancel:)])
         {
-            [self dismissViewControllerAnimated:YES completion:^{
-            }];
-        }else
-        {
-            [self.navigationController popViewControllerAnimated:YES];
+            [_delegate syImagePickerControllerDidCancel:wself];
         }
-    }
-    @catch (NSException *exception) {
-    }
-    @finally {
-    }
-    
-    
+    }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -59,6 +52,9 @@
     _photoDataSource=[[NSMutableArray alloc]init];
     _sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
     _assetsLibrary=[[ALAssetsLibrary alloc]init];
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getImageForNotification:) name:notification_imageEdit object:nil];
     
     switch (_sourceType) {
         case UIImagePickerControllerSourceTypePhotoLibrary:
@@ -77,6 +73,10 @@
             assert(nil);
             break;
     }    // Do any additional setup after loading the view from its nib.
+}
+-(void)getImageForNotification:(NSNotification *)nc
+{
+    NSLog(@"得到图片");
 }
 #pragma mark ---UICollectionViewDelegate----
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -106,7 +106,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    SYCollectionViewController *collect=[[SYCollectionViewController alloc]initWithNibName:@"SYCollectionViewController" bundle:nil];
+    collect.assetsGroup=_photoDataSource[indexPath.row];
+    [self.navigationController pushViewController:collect animated:YES];
 }
 
 - (void)loadAssetsGroups
@@ -167,6 +169,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 /*
 #pragma mark - Navigation
 

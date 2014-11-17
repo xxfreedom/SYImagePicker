@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>64E27CC0-C019-47BA-B519-84B70EEC8E85</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SYImagePicker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>66245EAEB0AFD9FB71C34A7F5F47E6D0D39CA349</key>
+		<string>https://github.com/xxfreedom/SYImagePicker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SYImagePicker.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>66245EAEB0AFD9FB71C34A7F5F47E6D0D39CA349</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/xxfreedom/SYImagePicker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>66245EAEB0AFD9FB71C34A7F5F47E6D0D39CA349</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>66245EAEB0AFD9FB71C34A7F5F47E6D0D39CA349</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SYImagePicker</string>
+		</dict>
+	</array>
+</dict>
+</plist>

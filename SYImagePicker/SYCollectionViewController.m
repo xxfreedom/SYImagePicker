@@ -7,7 +7,8 @@
 //
 
 #import "SYCollectionViewController.h"
-
+#import "SYCollectionViewCell.h"
+#import "PhotoDetailsViewController.h"
 @interface SYCollectionViewController ()
 
 @property(strong,nonatomic)NSMutableArray *photos;
@@ -21,10 +22,12 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+     self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"SYCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
+//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    _photos=[[NSMutableArray alloc]init];
     if(_assetsGroup)
     {
         [self getPhotos];
@@ -32,6 +35,7 @@ static NSString * const reuseIdentifier = @"Cell";
     {
         NSLog(@"group 为空");
     }
+    
     // Do any additional setup after loading the view.
 }
 
@@ -42,7 +46,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)getPhotos
 {
-    
+    __weak typeof(self)wself=self;
+    [_assetsGroup enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+        if(result)
+        {
+            [wself.photos addObject:result];
+        }else
+        {
+            [wself.collectionView reloadData];
+        }
+    }];
 }
 
 /*
@@ -58,18 +71,18 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
     return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return [_photos count];
+    return _photos.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    SYCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    ALAsset *asset=_photos[indexPath.row];
+    [cell.imageContemt setImage:[UIImage imageWithCGImage:asset.thumbnail]];
     
     // Configure the cell
     
@@ -78,21 +91,20 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
+
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
 	return YES;
 }
-*/
 
-/*
+
+
 // Uncomment this method to specify if the specified item should be selected
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-*/
 
-/*
+
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
 	return NO;
@@ -101,10 +113,17 @@ static NSString * const reuseIdentifier = @"Cell";
 - (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
 	return NO;
 }
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoDetailsViewController*photoDetails=[[PhotoDetailsViewController alloc]initWithNibName:@"PhotoDetailsViewController" bundle:nil];
+    photoDetails.photoALAsset=_photos[indexPath.row];
+    photoDetails.defaultRect=CGRectMake(0, 0, 100, 100);
+    
+    [self.navigationController pushViewController:photoDetails animated:YES];
 }
-*/
+//- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+//	
+//}
+
 
 @end

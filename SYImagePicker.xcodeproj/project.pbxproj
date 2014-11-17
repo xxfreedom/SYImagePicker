@@ -21,6 +21,11 @@
 		1133528A1A15F4E900133B19 /* SYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 113352891A15F4E900133B19 /* SYNavigationController.m */; };
 		1133528E1A16007000133B19 /* SYCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1133528C1A16007000133B19 /* SYCollectionViewController.m */; };
 		1133528F1A16007000133B19 /* SYCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1133528D1A16007000133B19 /* SYCollectionViewController.xib */; };
+		1156CC061A19858200157A1C /* SYCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1156CC041A19858200157A1C /* SYCollectionViewCell.m */; };
+		1156CC071A19858200157A1C /* SYCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1156CC051A19858200157A1C /* SYCollectionViewCell.xib */; };
+		1173ED411A199BD100DDE0D5 /* PhotoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1173ED3F1A199BD100DDE0D5 /* PhotoDetailsViewController.m */; };
+		1173ED421A199BD100DDE0D5 /* PhotoDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1173ED401A199BD100DDE0D5 /* PhotoDetailsViewController.xib */; };
+		11C420821A19D3B40097EB72 /* SYEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C420811A19D3B40097EB72 /* SYEditView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,14 @@
 		1133528B1A16007000133B19 /* SYCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYCollectionViewController.h; sourceTree = "<group>"; };
 		1133528C1A16007000133B19 /* SYCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYCollectionViewController.m; sourceTree = "<group>"; };
 		1133528D1A16007000133B19 /* SYCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SYCollectionViewController.xib; sourceTree = "<group>"; };
+		1156CC031A19858200157A1C /* SYCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYCollectionViewCell.h; sourceTree = "<group>"; };
+		1156CC041A19858200157A1C /* SYCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYCollectionViewCell.m; sourceTree = "<group>"; };
+		1156CC051A19858200157A1C /* SYCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SYCollectionViewCell.xib; sourceTree = "<group>"; };
+		1173ED3E1A199BD100DDE0D5 /* PhotoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDetailsViewController.h; sourceTree = "<group>"; };
+		1173ED3F1A199BD100DDE0D5 /* PhotoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDetailsViewController.m; sourceTree = "<group>"; };
+		1173ED401A199BD100DDE0D5 /* PhotoDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoDetailsViewController.xib; sourceTree = "<group>"; };
+		11C420801A19D3B40097EB72 /* SYEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYEditView.h; sourceTree = "<group>"; };
+		11C420811A19D3B40097EB72 /* SYEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYEditView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +129,14 @@
 				1133528B1A16007000133B19 /* SYCollectionViewController.h */,
 				1133528C1A16007000133B19 /* SYCollectionViewController.m */,
 				1133528D1A16007000133B19 /* SYCollectionViewController.xib */,
+				1156CC031A19858200157A1C /* SYCollectionViewCell.h */,
+				1156CC041A19858200157A1C /* SYCollectionViewCell.m */,
+				1156CC051A19858200157A1C /* SYCollectionViewCell.xib */,
+				11C420801A19D3B40097EB72 /* SYEditView.h */,
+				11C420811A19D3B40097EB72 /* SYEditView.m */,
+				1173ED3E1A199BD100DDE0D5 /* PhotoDetailsViewController.h */,
+				1173ED3F1A199BD100DDE0D5 /* PhotoDetailsViewController.m */,
+				1173ED401A199BD100DDE0D5 /* PhotoDetailsViewController.xib */,
 				113352881A15F4E900133B19 /* SYNavigationController.h */,
 				113352891A15F4E900133B19 /* SYNavigationController.m */,
 			);
@@ -228,11 +249,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1156CC071A19858200157A1C /* SYCollectionViewCell.xib in Resources */,
 				113352831A15E94F00133B19 /* SYImagePickerViewController.xib in Resources */,
 				113352651A15E68B00133B19 /* Main.storyboard in Resources */,
 				1133528F1A16007000133B19 /* SYCollectionViewController.xib in Resources */,
 				1133526A1A15E68B00133B19 /* LaunchScreen.xib in Resources */,
 				113352671A15E68B00133B19 /* Images.xcassets in Resources */,
+				1173ED421A199BD100DDE0D5 /* PhotoDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,11 +273,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1156CC061A19858200157A1C /* SYCollectionViewCell.m in Sources */,
 				113352821A15E94F00133B19 /* SYImagePickerViewController.m in Sources */,
 				113352621A15E68B00133B19 /* ViewController.m in Sources */,
+				11C420821A19D3B40097EB72 /* SYEditView.m in Sources */,
 				1133528E1A16007000133B19 /* SYCollectionViewController.m in Sources */,
 				1133525F1A15E68B00133B19 /* AppDelegate.m in Sources */,
 				1133525C1A15E68B00133B19 /* main.m in Sources */,
+				1173ED411A199BD100DDE0D5 /* PhotoDetailsViewController.m in Sources */,
 				1133528A1A15F4E900133B19 /* SYNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +472,7 @@
 				1133527B1A15E68B00133B19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1133527C1A15E68B00133B19 /* Build configuration list for PBXNativeTarget "SYImagePickerTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +481,7 @@
 				1133527E1A15E68B00133B19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
